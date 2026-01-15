@@ -1,0 +1,76 @@
+I0115 21:00:21.754107      19 main.go:64] Setting log level to: '1'
+I0115 21:00:21.757247      19 cache.go:87] Connecting to cache endpoint ds-pipeline-dspa.user1-toolings.svc.cluster.local:8887
+WARNING: aiobotocore 3.1.0 does not provide the extra 'boto3'
+WARNING: aiobotocore 3.0.0 does not provide the extra 'boto3'
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kfp 2.12.2 requires docstring-parser<1,>=0.7.3, which is not installed.
+kfp 2.12.2 requires google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0dev,>=1.31.5, which is not installed.
+kfp 2.12.2 requires google-auth<3,>=1.6.1, which is not installed.
+kfp 2.12.2 requires google-cloud-storage<3,>=2.2.1, which is not installed.
+kfp 2.12.2 requires kfp-pipeline-spec==0.6.0, which is not installed.
+kfp 2.12.2 requires kfp-server-api<2.5.0,>=2.1.0, which is not installed.
+kfp 2.12.2 requires kubernetes<31,>=8.0.0, which is not installed.
+kfp 2.12.2 requires protobuf<5,>=4.21.1, which is not installed.
+kfp 2.12.2 requires requests-toolbelt<2,>=0.8.0, which is not installed.
+
+[notice] A new release of pip is available: 23.0.1 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+[KFP Executor 2026-01-15 21:01:03,989 INFO]: Looking for component `setup_dvc_repository_with_env_credentials` in --component_module_path `/tmp/tmp.SOd8SVtoO6/ephemeral_component.py`
+[KFP Executor 2026-01-15 21:01:03,989 INFO]: Loading KFP component "setup_dvc_repository_with_env_credentials" from /tmp/tmp.SOd8SVtoO6/ephemeral_component.py (directory "/tmp/tmp.SOd8SVtoO6" and module name "ephemeral_component")
+[KFP Executor 2026-01-15 21:01:03,990 INFO]: Got executor_input:
+{
+    "inputs": {
+        "parameterValues": {
+            "dvc_data_url": "s3://data-cache",
+            "email": "mlops@wizard.com",
+            "repo_url": "https://gitea-gitea.apps.cluster-wc9gk.wc9gk.sandbox3465.opentlc.com/user1/jukebox.git"
+        }
+    },
+    "outputs": {
+        "artifacts": {
+            "executor-logs": {
+                "artifacts": [
+                    {
+                        "type": {
+                            "schemaTitle": "system.Artifact"
+                        },
+                        "uri": "s3://pipeline/etl-pipeline/e8524673-e744-4926-9e81-8962c27c5abf/setup-dvc-repository-with-env-credentials/e0425b49-cac7-424b-be7a-1ff13a2e6742/executor-logs"
+                    }
+                ]
+            }
+        },
+        "outputFile": "/tmp/kfp_outputs/output_metadata.json"
+    }
+}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/local/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/.local/lib/python3.9/site-packages/kfp/dsl/executor_main.py", line 109, in <module>
+    executor_main()
+  File "/.local/lib/python3.9/site-packages/kfp/dsl/executor_main.py", line 101, in executor_main
+    output_file = executor.execute()
+  File "/.local/lib/python3.9/site-packages/kfp/dsl/executor.py", line 361, in execute
+    result = self.func(**func_kwargs)
+  File "/tmp/tmp.SOd8SVtoO6/ephemeral_component.py", line 85, in setup_dvc_repository_with_env_credentials
+    run_command("dvc init")
+  File "/tmp/tmp.SOd8SVtoO6/ephemeral_component.py", line 32, in run_command
+    raise RuntimeError(f"Command failed: {command}\n{result.stderr}")
+RuntimeError: Command failed: dvc init
+ERROR: unexpected error - cannot import name '_DIR_MARK' from 'pathspec.patterns.gitwildmatch' (/.local/lib/python3.9/site-packages/pathspec/patterns/gitwildmatch.py)
+
+Having any troubles? Hit us up at https://dvc.org/support, we are always happy to help!
+
+Updated PATH: /usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/.local/bin
+Cloning repository from https://user1:thisisthepassword@gitea-gitea.apps.cluster-wc9gk.wc9gk.sandbox3465.opentlc.com/user1/jukebox.git...
+['.git', '.dontlookhere', '1-data_exploration', '2-dev_datascience', '3-prod_datascience', '4-metrics', '5-data-versioning', '6-advanced_deployments', '7-feature_store', '8-securing_ai', '99-data_prep', 'README.md', 'images']
+An error occurred: Command failed: dvc status
+ERROR: you are not inside of a DVC repository (checked up to mount point '/')
+
+Initializing DVC...
+I0115 21:01:06.561717      19 launcher_v2.go:200] publish success.
+I0115 21:01:06.689456      19 client.go:767] Attempting to update DAG state
+F0115 21:01:06.791722      19 main.go:56] failed to execute component: exit status 1
+time="2026-01-15T21:01:07.741Z" level=info msg="sub-process exited" argo=true error="<nil>"
+Error: exit status 1
