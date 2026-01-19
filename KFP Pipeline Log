@@ -1,0 +1,82 @@
+I0119 14:47:26.352634      21 main.go:64] Setting log level to: '1'
+I0119 14:47:26.355760      21 cache.go:87] Connecting to cache endpoint ds-pipeline-dspa.user1-toolings.svc.cluster.local:8887
+WARNING: aiobotocore 3.1.0 does not provide the extra 'boto3'
+WARNING: aiobotocore 3.0.0 does not provide the extra 'boto3'
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+kfp 2.9.0 requires docstring-parser<1,>=0.7.3, which is not installed.
+kfp 2.9.0 requires google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0dev,>=1.31.5, which is not installed.
+kfp 2.9.0 requires google-auth<3,>=1.6.1, which is not installed.
+kfp 2.9.0 requires google-cloud-storage<3,>=2.2.1, which is not installed.
+kfp 2.9.0 requires kfp-pipeline-spec==0.4.0, which is not installed.
+kfp 2.9.0 requires kfp-server-api<2.4.0,>=2.1.0, which is not installed.
+kfp 2.9.0 requires kubernetes<31,>=8.0.0, which is not installed.
+kfp 2.9.0 requires protobuf<5,>=4.21.1, which is not installed.
+kfp 2.9.0 requires requests-toolbelt<1,>=0.8.0, which is not installed.
+
+[notice] A new release of pip is available: 23.0.1 -> 25.3
+[notice] To update, run: pip install --upgrade pip
+[KFP Executor 2026-01-19 14:48:11,003 INFO]: Looking for component `fetch_data_from_dvc` in --component_module_path `/tmp/tmp.x060TwSWa5/ephemeral_component.py`
+[KFP Executor 2026-01-19 14:48:11,003 INFO]: Loading KFP component "fetch_data_from_dvc" from /tmp/tmp.x060TwSWa5/ephemeral_component.py (directory "/tmp/tmp.x060TwSWa5" and module name "ephemeral_component")
+[KFP Executor 2026-01-19 14:48:11,004 INFO]: Got executor_input:
+{
+    "inputs": {
+        "parameterValues": {
+            "cluster_domain": "apps.cluster-wc9gk.wc9gk.sandbox3465.opentlc.com",
+            "git_version": "e7c248359d"
+        }
+    },
+    "outputs": {
+        "artifacts": {
+            "dataset": {
+                "artifacts": [
+                    {
+                        "type": {
+                            "schemaTitle": "system.Dataset",
+                            "schemaVersion": "0.0.1"
+                        },
+                        "uri": "s3://pipeline/kfp-training-pipeline/ea0d7fd0-03d8-48c5-86a3-cd25908f15a0/fetch-data-from-dvc/8619fdda-7c13-4a55-9281-d35d26c580bc/dataset"
+                    }
+                ]
+            },
+            "executor-logs": {
+                "artifacts": [
+                    {
+                        "type": {
+                            "schemaTitle": "system.Artifact"
+                        },
+                        "uri": "s3://pipeline/kfp-training-pipeline/ea0d7fd0-03d8-48c5-86a3-cd25908f15a0/fetch-data-from-dvc/8619fdda-7c13-4a55-9281-d35d26c580bc/executor-logs"
+                    }
+                ]
+            }
+        },
+        "outputFile": "/tmp/kfp_outputs/output_metadata.json"
+    }
+}
+Updated PATH: /usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/.local/bin
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/local/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/.local/lib/python3.9/site-packages/kfp/dsl/executor_main.py", line 109, in <module>
+    executor_main()
+  File "/.local/lib/python3.9/site-packages/kfp/dsl/executor_main.py", line 101, in executor_main
+    output_file = executor.execute()
+  File "/.local/lib/python3.9/site-packages/kfp/dsl/executor.py", line 361, in execute
+    result = self.func(**func_kwargs)
+  File "/tmp/tmp.x060TwSWa5/ephemeral_component.py", line 59, in fetch_data_from_dvc
+    song_properties = pd.read_parquet("song_properties.parquet")
+  File "/.local/lib/python3.9/site-packages/pandas/io/parquet.py", line 667, in read_parquet
+    return impl.read(
+  File "/.local/lib/python3.9/site-packages/pandas/io/parquet.py", line 267, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+  File "/.local/lib/python3.9/site-packages/pandas/io/parquet.py", line 140, in _get_path_or_handle
+    handles = get_handle(
+  File "/.local/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'song_properties.parquet'
+I0119 14:48:13.381534      21 launcher_v2.go:200] publish success.
+I0119 14:48:13.421154      21 client.go:767] Attempting to update DAG state
+F0119 14:48:13.443474      21 main.go:56] failed to execute component: exit status 1
+time="2026-01-19T14:48:15.349Z" level=info msg="sub-process exited" argo=true error="<nil>"
+Error: exit status 1
